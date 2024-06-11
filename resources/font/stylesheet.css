@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "ShlapakScript";
+    src: url("/resources/font/shlapakScript/shlapakScript.woff");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "SourceSerif";
+    src: url("/resources/font/sourceSerif/SourceSerif4-ExtraLight.ttf");
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: "SourceSerif";
+    src: url("/resources/font/sourceSerif/SourceSerif4-Light.ttf");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "SourceSerif";
+    src: url("/resources/font/sourceSerif/SourceSerif4-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "SourceSerif";
+    src: url("/resources/font/sourceSerif/SourceSerif4-Medium.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "SourceSerif";
+    src: url("/resources/font/sourceSerif/SourceSerif4-Bold.ttf");
+    font-weight: 700;
+}
