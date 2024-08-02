@@ -31,8 +31,9 @@ p {
 
 .img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    object-fit: cover;
 }
 
 .app {
@@ -42,6 +43,13 @@ p {
     color: var(--font-color-main);
     background-color: var(--bg-color-main);
     letter-spacing: 2px;
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.map {
+    border-radius: 10px;
 }
 
 .title {
@@ -111,7 +119,7 @@ p {
     &__list {
         &-item {
             border-top: 1px solid #fff;
-            padding: 40px 0;
+            padding: 40px 20px;
             display: flex;
             align-items: center;
 
@@ -159,9 +167,32 @@ p {
             margin: 20px 0;
         }
     }
+
+    .address {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+
+        &:hover .copyImg {
+            scale: 1.2;
+        }
+
+        .copyImg, .doneImg, .rejectImg {
+            width: 30px;
+            transition: .1s linear;
+            position: absolute;
+            left: 255px;
+        }
+
+        .doneImg, .rejectImg {
+            opacity: 0;
+            width: 25px;
+        }
+    }
 }
 
-.cloather {
+.clothes {
     &__inner {
         position: relative;
         padding: 40px 10px;
@@ -184,7 +215,13 @@ p {
             gap: 10px;
         }
 
-        &-cloath {
+        &-img {
+            overflow: hidden;
+            border-radius: 5px;
+            max-height: 450px;
+        }
+
+        &-cloth {
             margin-bottom: 20px;
         }
 
@@ -201,7 +238,7 @@ p {
         }
     }
 
-    &__cloath {
+    &__cloth {
         &-item {
             margin-bottom: 10px;
             font-size: var(--font-size-s);
@@ -217,19 +254,27 @@ p {
 
         &-palette {
             display: flex;
-            justify-content: space-between;
             align-items: center;
         }
     }
 
     &__palette {
         &-item {
-            background-color: #fff;
+            max-width: 100px;
             width: 100%;
-            height: 65px;
+            height: 100px;
+            border-radius: 5px;
 
             &:not(:last-of-type) {
-                margin-right: 10px;
+                margin-right: 40px;
+            }
+
+            &.black {
+                background-color: #000;
+            }
+
+            &.white {
+                background-color: #fff;
             }
         }
     }
@@ -249,15 +294,21 @@ p {
             font-family: var(--font-family-serif);
             font-size: var(--font-size-xl);
 
+            div {
+                &:not(:last-child) {
+                    margin-bottom: 10px;
+                }
+            }
+
             a {
                 color: inherit;
                 text-decoration: none;
                 cursor: pointer;
-                border-bottom: 0px solid var(--bg-color-secondary);
+                border-bottom: 1px solid transparent;
                 transition: .1s linear;
 
                 &:hover {
-                    border-width: 1px;
+                    border-color: var(--bg-color-secondary);
                 }
             }
         }
@@ -322,7 +373,7 @@ p {
             }
 
             &:hover::before {
-                background-color: var(--bg-color-main);
+                background-color: var(--font-color-hover);
             }
         }
 
@@ -331,11 +382,14 @@ p {
         }
 
         &-btn {
+            display: block;
             height: 55px;
-            width: 100%;
+            width: 95%;
+            margin: 0 auto;
             border-radius: 5px;
             cursor: pointer;
             transition: .1s linear;
+            position: relative;
 
             &:hover {
                 transform: scale(1.03);
@@ -354,6 +408,31 @@ p {
 
             &.good {
                 color: var(--font-color-good);
+            }
+        }
+    }
+
+    &__btn {
+        &-text {
+            transition: .15s opacity linear;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            opacity: 1;
+        }
+
+        &-loader {
+            transition: .15s opacity linear;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            opacity: 0;
+
+            img {
+                width: 100px;
+                height: auto;
             }
         }
     }

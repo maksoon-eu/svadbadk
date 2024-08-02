@@ -2,6 +2,7 @@
   --font-family-serif: "ShlapakScript", Arial, sans-serif;
   --font-family-main: "SourceSerif", Arial, sans-serif;
   --font-color-main: #fff;
+  --font-color-hover: #838383;
   --font-color-secondary: #000;
   --font-color-gray: #aaaaaa;
   --font-color-error: #ff2626;
@@ -49,8 +50,10 @@ p {
 
 .img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .app {
@@ -60,6 +63,13 @@ p {
   color: var(--font-color-main);
   background-color: var(--bg-color-main);
   letter-spacing: 2px;
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.map {
+  border-radius: 10px;
 }
 
 .title {
@@ -115,7 +125,7 @@ p {
 }
 .program__list-item {
   border-top: 1px solid #fff;
-  padding: 40px 0;
+  padding: 40px 20px;
   display: flex;
   align-items: center;
 }
@@ -152,30 +162,54 @@ p {
   font-size: var(--font-size-s);
   margin: 20px 0;
 }
+.place .address {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+.place .address:hover .copyImg {
+  scale: 1.2;
+}
+.place .address .copyImg, .place .address .doneImg, .place .address .rejectImg {
+  width: 30px;
+  transition: 0.1s linear;
+  position: absolute;
+  left: 255px;
+}
+.place .address .doneImg, .place .address .rejectImg {
+  opacity: 0;
+  width: 25px;
+}
 
-.cloather__inner {
+.clothes__inner {
   position: relative;
   padding: 40px 10px;
   background-color: var(--bg-color-secondary);
 }
-.cloather__inner-text {
+.clothes__inner-text {
   margin: 20px 0;
   font-size: var(--font-size-s);
 }
-.cloather__inner-serif {
+.clothes__inner-serif {
   font-family: var(--font-family-serif);
   font-size: var(--font-size-xl);
 }
-.cloather__inner-imgs {
+.clothes__inner-imgs {
   margin: 20px 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
-.cloather__inner-cloath {
+.clothes__inner-img {
+  overflow: hidden;
+  border-radius: 5px;
+  max-height: 450px;
+}
+.clothes__inner-cloth {
   margin-bottom: 20px;
 }
-.cloather__inner::after {
+.clothes__inner::after {
   position: absolute;
   z-index: 2;
   content: "";
@@ -186,27 +220,33 @@ p {
   bottom: -54px;
   right: 10px;
 }
-.cloather__cloath-item {
+.clothes__cloth-item {
   margin-bottom: 10px;
   font-size: var(--font-size-s);
 }
-.cloather__color-text {
+.clothes__color-text {
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: var(--font-size-s);
 }
-.cloather__color-palette {
+.clothes__color-palette {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
-.cloather__palette-item {
-  background-color: #fff;
+.clothes__palette-item {
+  max-width: 100px;
   width: 100%;
-  height: 65px;
+  height: 100px;
+  border-radius: 5px;
 }
-.cloather__palette-item:not(:last-of-type) {
-  margin-right: 10px;
+.clothes__palette-item:not(:last-of-type) {
+  margin-right: 40px;
+}
+.clothes__palette-item.black {
+  background-color: #000;
+}
+.clothes__palette-item.white {
+  background-color: #fff;
 }
 
 .organization__inner {
@@ -221,15 +261,18 @@ p {
   font-family: var(--font-family-serif);
   font-size: var(--font-size-xl);
 }
+.organization__inner-contact div:not(:last-child) {
+  margin-bottom: 10px;
+}
 .organization__inner-contact a {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
-  border-bottom: 0px solid var(--bg-color-secondary);
+  border-bottom: 1px solid transparent;
   transition: 0.1s linear;
 }
 .organization__inner-contact a:hover {
-  border-width: 1px;
+  border-color: var(--bg-color-secondary);
 }
 
 .form__inner {
@@ -284,17 +327,20 @@ p {
   transition: 0.1s linear;
 }
 .form__inner-radio:hover::before, .form__inner-checkbox:hover::before {
-  background-color: var(--bg-color-main);
+  background-color: var(--font-color-hover);
 }
 .form__inner-radio::before {
   border-radius: 50%;
 }
 .form__inner-btn {
+  display: block;
   height: 55px;
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
   border-radius: 5px;
   cursor: pointer;
   transition: 0.1s linear;
+  position: relative;
 }
 .form__inner-btn:hover {
   transform: scale(1.03);
@@ -310,4 +356,24 @@ p {
 }
 .form__inner-log.good {
   color: var(--font-color-good);
+}
+.form__btn-text {
+  transition: 0.15s opacity linear;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 1;
+}
+.form__btn-loader {
+  transition: 0.15s opacity linear;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  opacity: 0;
+}
+.form__btn-loader img {
+  width: 100px;
+  height: auto;
 }/*# sourceMappingURL=style.css.map */
