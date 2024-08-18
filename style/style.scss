@@ -169,10 +169,10 @@ p {
     }
 
     .address {
-        display: flex;
-        align-items: center;
+        display: inline-block;
         cursor: pointer;
         position: relative;
+        margin-top: 10px;
 
         &:hover .copyImg {
             scale: 1.2;
@@ -183,6 +183,8 @@ p {
             transition: .1s linear;
             position: absolute;
             left: 255px;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
         .doneImg, .rejectImg {
